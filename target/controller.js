@@ -10,19 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
+const entity_1 = require("./games/entity");
 let MainController = class MainController {
-    main() {
-        return {
-            hello: 'World'
-        };
+    async allGames() {
+        const games = await entity_1.default.find();
+        return { Games: entity_1.default };
     }
 };
 __decorate([
-    routing_controllers_1.Get("/hello"),
+    routing_controllers_1.Get('/games'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], MainController.prototype, "main", null);
+    __metadata("design:returntype", Promise)
+], MainController.prototype, "allGames", null);
 MainController = __decorate([
     routing_controllers_1.Controller()
 ], MainController);
