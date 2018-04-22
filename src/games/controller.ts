@@ -4,7 +4,6 @@ import Games from './entity';
 
 @Controller()
 export default class MainController {
-
   @Get('/games')
   async allGames() {
     const games = await Games.find()
@@ -29,13 +28,16 @@ async updateGames(
   return Games.merge(games, update).save()
 }
 
-
-    
 }
+
+
+
+
 const randomColor = () => {
-  const colors = ['blue', 'red', 'green', 'magneta', 'yellow']
+  const colors = ['blue', 'red', 'green', 'magenta', 'yellow']
   return colors[Math.floor(Math.random() * colors.length)]
 }
+
 
 // const moves = (board1, board2) => 
 //   board1

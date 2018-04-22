@@ -1,18 +1,19 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 import { BaseEntity } from 'typeorm/repository/BaseEntity'
+import { IsIn } from "class-validator";
+
+const colors = ['blue', 'red', 'green', 'magenta', 'yellow']
 
 @Entity()
 export default class Games extends BaseEntity {
 
-  static findById(arg0: any): any {
-    throw new Error("Method not implemented.");
-  }
   @PrimaryGeneratedColumn()
   id?: number
 
   @Column('text', {nullable:false})
   name: string
 
+  @IsIn(colors)
   @Column('text', {nullable:false})
   color: string
 

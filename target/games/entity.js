@@ -11,10 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const BaseEntity_1 = require("typeorm/repository/BaseEntity");
+const class_validator_1 = require("class-validator");
+const colors = ['blue', 'red', 'green', 'magenta', 'yellow'];
 let Games = class Games extends BaseEntity_1.BaseEntity {
-    static findById(arg0) {
-        throw new Error("Method not implemented.");
-    }
 };
 __decorate([
     typeorm_1.PrimaryGeneratedColumn(),
@@ -25,6 +24,7 @@ __decorate([
     __metadata("design:type", String)
 ], Games.prototype, "name", void 0);
 __decorate([
+    class_validator_1.IsIn(colors),
     typeorm_1.Column('text', { nullable: false }),
     __metadata("design:type", String)
 ], Games.prototype, "color", void 0);
