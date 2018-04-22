@@ -14,13 +14,14 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
 const entity_1 = require("./entity");
+const randomcolor_1 = require("./randomcolor");
 let MainController = class MainController {
     async allGames() {
         const games = await entity_1.default.find();
         return { games };
     }
     createGames(game) {
-        game.color = randomColor();
+        game.color = randomcolor_1.randomColor();
         return game.save();
     }
     async updateGames(id, update) {
@@ -56,8 +57,4 @@ MainController = __decorate([
     routing_controllers_1.Controller()
 ], MainController);
 exports.default = MainController;
-const randomColor = () => {
-    const colors = ['blue', 'red', 'green', 'magenta', 'yellow'];
-    return colors[Math.floor(Math.random() * colors.length)];
-};
 //# sourceMappingURL=controller.js.map

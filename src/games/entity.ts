@@ -13,6 +13,13 @@ export default class Games extends BaseEntity {
   @Column('text', {nullable:false})
   name: string
 
+/*
+The @IsIn validator checks if a value is in an array of allowed values.
+In this case it works partually. If a user chooses a color that's not 
+in the array, the server returns an error. If the user chooses a color that's in the array,
+there will be a color randomly assigned to the user. If the user doesn't pick a color 
+at all, he/she also gets an arror
+*/
   @IsIn(colors)
   @Column('text', {nullable:false})
   color: string
